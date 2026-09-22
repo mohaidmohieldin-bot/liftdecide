@@ -11,22 +11,24 @@ By the end, you will have:
 
 ---
 
-## Fill This In (Your Startup's Mission)
+## The Startup's Mission
 
 **Startup Name:**
-> *(What is your company or product called?)*
+> LiftDecide
 
 **The Problem:**
-> *(What frustration or gap does your target user experience today?)*
+> Intermediate lifters stall and can't tell if it's fatigue, form breakdown, or a real plateau. Their apps log what they did but never say what to do next — so they guess, waste weeks, and program-hop instead of trusting a plan.
 
 **Target Audience:**
-> *(Who exactly is this for? Be specific — not "everyone".)*
+> Intermediate lifters (past beginner, no coach) who train on their own.
 
 **Your Solution:**
-> *(What does your product do to solve that problem?)*
+> A metrics-first training-decision engine that reads logged lifts (sets, reps, weight) and makes one coach-like call — train on, hold, deload, or flag — with a plain-English reason shown on screen.
 
 **Value Proposition (one sentence):**
-> *"We help [USER] who struggle with [PROBLEM] by providing [SOLUTION], helping them [VALUE]."*
+> "We help intermediate lifters who are stuck guessing at stalls by giving them a decision engine that reads their logged lifts and tells them exactly what to do next, helping them trust their plan and stop wasting weeks."
+
+**Brand Identity:** "Coral Punch" palette — coral `#FF5A3C` primary, warm white background, deep ink `#1E1B2E` text. Space Grotesk headings, DM Sans body, JetBrains Mono for data. Full token set and button/radius rules live in `build-lab/MISSION.md` (the Founder Notebook).
 
 ---
 

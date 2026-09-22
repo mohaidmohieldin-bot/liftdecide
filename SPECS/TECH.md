@@ -24,7 +24,10 @@ build-lab/
 └── MISSION.md      ← Your Founder Notebook (fill this in as you go)
 ```
 
-The `SPECS/` folder holds your project constitution (these files). It is not part of the website — it is your planning space.
+The `SPECS/` folder holds your project constitution (these files) plus dated
+feature-spec folders (e.g. `2026-09-22-base-shell/`) that each document one
+completed step with `requirements.md`, `plan.md`, and `validation.md`. It is not
+part of the website — it is your planning space.
 
 ## Engineering Rules
 
@@ -42,6 +45,13 @@ No React, Vue, Angular, or npm packages. Everything runs in plain HTML, CSS, and
 
 ### Motion budget
 Maximum: 1 hero effect + 1 scroll effect + 1 microinteraction. Every animation must have a purpose.
+
+Current allocation (all vanilla CSS, no libraries):
+- **Hero effect:** staggered `hero-in` entrance — eyebrow, headline, subhead, CTAs rise in sequence with one keyframe.
+- **Scroll effect:** `IntersectionObserver` fade-up on `.reveal` sections (via `script.js`).
+- **Microinteraction:** feature cards lift `translateY(-4px)` over `200ms ease` on hover (same ease/feel as the button hover lift).
+
+All animations are disabled under `prefers-reduced-motion: reduce`.
 
 ### Think before you prompt
 Follow the cycle: **Think → Ask → Evaluate → Decide → Build**. Never accept AI output without reviewing it first.

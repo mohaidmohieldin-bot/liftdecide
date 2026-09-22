@@ -140,9 +140,18 @@ section[id] {
   text-align: center;
   padding-top: var(--space-6);
   padding-bottom: var(--space-6);
-  /* the one hero effect in the motion budget */
+}
+
+/* Hero entrance — one keyframe, staggered children
+   so the page "unfolds" instead of sliding up as one block. */
+.hero > * {
   animation: hero-in 600ms ease-out both;
 }
+
+.hero .eyebrow      { animation-delay: 0ms; }
+.hero h1            { animation-delay: 90ms; }
+.hero .subhead      { animation-delay: 180ms; }
+.hero .hero-actions { animation-delay: 260ms; }
 
 .eyebrow {
   font-family: var(--font-mono);
@@ -289,6 +298,13 @@ section[id] {
   padding: var(--space-4);
   /* soft shadow: ink token at low opacity */
   box-shadow: 0 4px 12px rgba(30, 27, 46, 0.08);
+  /* subtler than the buttons' bounce: same 200ms ease, less travel */
+  transition: transform 200ms ease, box-shadow 200ms ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(30, 27, 46, 0.12);
 }
 
 .feature-card h3 {
@@ -357,7 +373,8 @@ section[id] {
     transition: none;
   }
 
-  .hero {
+  .hero,
+  .hero > * {
     animation: none;
   }
 }

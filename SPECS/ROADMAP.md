@@ -8,6 +8,8 @@ This is the six-stage journey from blank canvas to live startup. Each stage buil
 
 > **Stages 1–5 complete.** The LiftDecide landing page is built and verified locally
 > (base shell, navbar + hero, content sections, motion budget, quality audit).
+> Motion polish is in: a staggered hero entrance animation and a subtle hover lift
+> on the feature cards (both vanilla CSS, token-based, reduced-motion safe).
 > Stage 6 (Test → Show → Ship) is next: human test, triage, then commit/deploy.
 
 ---
