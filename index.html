@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="LiftDecide reads your last few sets and tells you exactly what to do next — train on, hold, deload, or flag. Logged it. Now what?" />
+  <title>LiftDecide — Logged it. Now what?</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=JetBrains+Mono:wght@500&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand-group">
+        <a class="brand" href="#">LiftDecide</a>
+        <span class="brand-tag">rule-based v1</span>
+      </div>
+      <nav class="nav-links" aria-label="Page sections">
+        <a href="#tool">Try the tool</a>
+        <a href="#rules">How it works</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <section class="hero">
+      <p class="eyebrow">Training decision engine</p>
+      <h1>Logged it.<br />Now&nbsp;what?</h1>
+      <p class="subhead">
+        LiftDecide reads your last few sets and tells you exactly what to do next —
+        train on, hold, deload, or flag — with a plain-English reason you can trust.
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#tool">Get my first call</a>
+        <a class="btn btn-secondary" href="#rules">How it works</a>
+      </div>
+    </section>
+
+    <section class="section problem reveal" id="problem">
+      <p class="eyebrow">The problem</p>
+      <h2>Your log tells you what you did. Not what to do next.</h2>
+      <p class="section-text">
+        When a lift stalls, you can't tell fatigue from a real plateau — so you guess,
+        and waste weeks.
+      </p>
+      <p class="section-text">
+        Existing apps stay silent after the last rep. Silence leads to program-hopping.
+      </p>
+    </section>
+
+    <section class="section solution reveal" id="solution">
+      <p class="eyebrow">The solution</p>
+      <h2>The coach call you've been missing — on one screen.</h2>
+      <p class="section-text">
+        One call per lift: <strong>train on, hold, deload, or flag</strong> — with the
+        reason shown, so it's a decision you understand, not a black box.
+      </p>
+      <p class="section-text">
+        Logic from proven autoregulation protocols, not AI magic. That's why you can trust it.
+      </p>
+    </section>
+
+    <section class="section features reveal" id="features">
+      <p class="eyebrow">Everything you need</p>
+      <h2>Everything you need to decide. Nothing you don't.</h2>
+      <div class="feature-grid">
+        <div class="feature-card">
+          <h3>30 seconds, no RPE</h3>
+          <p>Just weight + reps — three quick "did you hit your target?" checks. No guesswork.</p>
+        </div>
+        <div class="feature-card">
+          <h3>One simple rule</h3>
+          <p>Miss a lift twice &rarr; deload. Repeatable, teachable, no jargon, no mystery.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Reasons you can see</h3>
+          <p>Every call shows its reasoning, so you learn the rule instead of following blindly.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="tool reveal" id="tool">
+      <h2>One lift, last three sessions</h2>
+      <form id="decision-form">
+        <div class="sessions">
+
+          <div class="session-card">
+            <h3>Session 1 <span class="muted">oldest</span></h3>
+            <label for="w1">Weight (kg)
+              <input type="number" id="w1" min="0" step="0.5" placeholder="e.g. 100" />
+            </label>
+            <label for="t1">Target reps per set
+              <input type="number" id="t1" min="1" step="1" placeholder="e.g. 5" />
+            </label>
+            <label for="a1">Reps you hit on your last set
+              <input type="number" id="a1" min="0" step="1" placeholder="e.g. 5" />
+            </label>
+          </div>
+
+          <div class="session-card">
+            <h3>Session 2</h3>
+            <label for="w2">Weight (kg)
+              <input type="number" id="w2" min="0" step="0.5" placeholder="e.g. 100" />
+            </label>
+            <label for="t2">Target reps per set
+              <input type="number" id="t2" min="1" step="1" placeholder="e.g. 5" />
+            </label>
+            <label for="a2">Reps you hit on your last set
+              <input type="number" id="a2" min="0" step="1" placeholder="e.g. 5" />
+            </label>
+          </div>
+
+          <div class="session-card">
+            <h3>Session 3 <span class="muted">this week</span></h3>
+            <label for="w3">Weight (kg)
+              <input type="number" id="w3" min="0" step="0.5" placeholder="e.g. 100" />
+            </label>
+            <label for="t3">Target reps per set
+              <input type="number" id="t3" min="1" step="1" placeholder="e.g. 5" />
+            </label>
+            <label for="a3">Reps you hit on your last set
+              <input type="number" id="a3" min="0" step="1" placeholder="e.g. 5" />
+            </label>
+          </div>
+
+        </div>
+
+        <button type="submit" id="decide-btn" class="btn btn-primary">Make the call</button>
+        <p id="error" class="error hidden"></p>
+
+        <div id="result" class="result hidden" aria-live="polite"></div>
+      </form>
+    </section>
+
+    <section class="rules reveal" id="rules">
+      <h2>How the call is made</h2>
+      <ul>
+        <li>All reps hit for 3 sessions in a row &rarr; <strong>add weight</strong></li>
+        <li>Missed reps once &rarr; <strong>repeat the weight</strong></li>
+        <li>Missed reps twice or more &rarr; <strong>deload</strong></li>
+      </ul>
+      <p class="note">v1 keeps it honest: no RPE guessing, no camera. Just your numbers.</p>
+    </section>
+
+    <section class="section proof reveal" id="proof">
+      <p class="eyebrow">Built by one of you</p>
+      <h2>Built by an intermediate lifter who hit the same wall.</h2>
+      <blockquote class="quote">
+        &ldquo;I wasted weeks guessing &mdash; this is the fix I wanted myself.&rdquo;
+      </blockquote>
+      <p class="section-text">
+        Placeholder: quotes from the ~20 interviews with fellow intermediate lifters
+        land here as validation continues.
+      </p>
+    </section>
+
+    <section class="section cta reveal" id="cta">
+      <h2>Your next call in under 30 seconds.</h2>
+      <p class="section-text">
+        Try the decision calculator now &mdash; no account, no logbook to import.
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#tool">Get my first decision</a>
+        <a class="btn btn-secondary" href="#rules">See the reasoning</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">Your training, one call at a time.</div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
